@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="PlayerSelectionScreen" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.krizhp.consequences.MenuController">
+   <children>
+      <ImageView fx:id="PlayerScreenBackground" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@assets/playerSelection.png" />
+         </image>
+      </ImageView>
+      <GridPane fx:id="PlayerSelectionGridPane" layoutX="154.0" layoutY="95.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="660.0" minWidth="10.0" prefWidth="645.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="636.0" minWidth="10.0" prefWidth="635.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="372.0" minHeight="10.0" prefHeight="370.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="358.0" minHeight="10.0" prefHeight="350.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="PlayerOneButton" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" opacity="0.0" text="notEnabled" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <font>
+                  <Font name="Arial" size="48.0" />
+               </font>
+               <effect>
+                  <Blend mode="MULTIPLY" />
+               </effect></Button>
+            <Button fx:id="PlayerThreeButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" opacity="0.0" text="notEnabled" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="PlayerTwoButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" opacity="0.0" text="notEnabled" GridPane.columnIndex="1" />
+            <Button fx:id="PlayerFourButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" opacity="0.0" text="notEnabled" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
