@@ -44,5 +44,13 @@
                </font></Button>
          </children>
       </GridPane>
+      <AnchorPane layoutX="540.0" layoutY="260.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="PlayerSelectionFinishedButton" layoutX="74.0" layoutY="100.0" mnemonicParsing="false" text="ADD BUTTON" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font></Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

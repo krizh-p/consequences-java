@@ -6,6 +6,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.event.ActionEvent;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 
 import java.util.LinkedList;
 
@@ -35,6 +36,9 @@ public class MenuController {
     @FXML
     private Button PlayerTwoButton;
 
+    @FXML
+    private Button PlayerSelectionFinishedButton = new Button();
+
     //
     //Start Screen Nodes
     //
@@ -47,19 +51,8 @@ public class MenuController {
     @FXML
     private AnchorPane StartMenuScreen;
 
+
     public void handleButtonAction(ActionEvent e) {
-        if (e.getTarget() == GameStartButton) {
-            //switch screens
-            ConsequencesApplication.primaryStage.setScene(ConsequencesApplication.gameInstructions);
-
-        }
-        else  {
-            switchButton(e);
-
-        }
-    }
-
-    private void switchButton(ActionEvent e) {
         if (e.getTarget() == PlayerOneButton) {
             enablePlayer(PlayerOneButton, "blue", findPlayer(PlayerOneButton));
         }
@@ -77,7 +70,6 @@ public class MenuController {
     private void enablePlayer (Button b, String tileColor, Player playerTargeted) {
         if (b.getText().equals("notEnabled")) {
             players++;
-            System.out.println(players);
             playersSelected.add(new Player(tileColor, players, b));
             b.setOpacity(.2);
             b.setText(playersSelected.get(players).toString());

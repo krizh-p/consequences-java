@@ -1,7 +1,6 @@
 package com.krizhp.consequences;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,9 +13,9 @@ import java.util.Objects;
 public class ConsequencesApplication extends Application {
     public static Stage primaryStage;
 
-    public final int HEIGHT = 720;
-    public final int LENGTH = 1280;
-    public static Scene startMenu;
+    public static final int HEIGHT = 720;
+    public static final int LENGTH = 1280;
+    public static Scene titleScreen;
     public static Scene gameInstructions;
 
     @Override
@@ -26,12 +25,12 @@ public class ConsequencesApplication extends Application {
         ConsequencesApplication.primaryStage = primaryStage;
         Parent rootStartMenu = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartMenu.fxml")));
         Parent rootPlayerScreen= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PlayerScreen.fxml")));
-        startMenu = new Scene(rootStartMenu, LENGTH, HEIGHT);
+        titleScreen = new Scene(rootStartMenu, LENGTH, HEIGHT);
         gameInstructions = new Scene(rootPlayerScreen, LENGTH, HEIGHT);
 
         //Set Screen
         primaryStage.setTitle("CONSEQUENCES");
-        primaryStage.setScene(startMenu);
+        primaryStage.setScene(titleScreen);
         primaryStage.setResizable(false);
         primaryStage.show();
     }
