@@ -7,10 +7,16 @@ import javafx.scene.layout.GridPane;
 import javafx.event.ActionEvent;
 import javafx.scene.image.ImageView;
 
+import java.util.LinkedList;
+
 public class MenuController {
 
-    private int players = 0;
+    private int players = -1;
+    private LinkedList<Player> playersSelected = new LinkedList<>();
+
+    //
     //Player Selector Screen Nodes
+    //
     @FXML
     private Button PlayerFourButton;
 
@@ -29,8 +35,9 @@ public class MenuController {
     @FXML
     private Button PlayerTwoButton;
 
-
+    //
     //Start Screen Nodes
+    //
     @FXML
     private Button GameStartButton;
 
@@ -47,20 +54,71 @@ public class MenuController {
 
         }
         else  {
-            addPlayer(e);
+            switchButton(e);
 
         }
     }
 
-    private void addPlayer(ActionEvent e) {
+    private void switchButton(ActionEvent e) {
         if (e.getTarget() == PlayerOneButton) {
-            if (PlayerOneButton.getText().equals("notEnabled")) {
-                System.out.println("Worked");
-                PlayerOneButton.setOpacity(.1);
-                PlayerOneButton.setText("Player One Selected");
-                players++;
+            enablePlayer(PlayerOneButton, "blue", findPlayer(PlayerOneButton));
+        }
+        else if (e.getTarget() == PlayerTwoButton) {
+            enablePlayer(PlayerTwoButton, "yellow", findPlayer(PlayerTwoButton));
+        }
+        else if (e.getTarget() == PlayerThreeButton) {
+            enablePlayer(PlayerThreeButton, "green", findPlayer(PlayerThreeButton));
+        }
+        else if (e.getTarget() == PlayerFourButton) {
+            enablePlayer(PlayerFourButton, "pink", findPlayer(PlayerFourButton));
+        }
+    }
 
+    private void enablePlayer (Button b, String tileColor, Player playerTargeted) {
+        if (b.getText().equals("notEnabled")) {
+            players++;
+            System.out.println(players);
+            playersSelected.add(new Player(tileColor, players, b));
+            b.setOpacity(.2);
+            b.setText(playersSelected.get(players).toString());
+        }
+        else {
+            //Prevent duplicate players
+            if (players >= 1) {
+                int targetedOrder = playerTargeted.getOrderChosen();
+                int counter = 0;
+                for (Player player : playersSelected) {
+                    if (player != null) {
+                        Button playerButton = player.getPlayerButton();
+
+                        //If current playerButton needs to be updated
+                        if (player.getOrderChosen() > targetedOrder) {
+                            player.setOrderChosen(targetedOrder + counter);
+                            playerButton.setText(player.toString());
+                            counter++;
+                        }
+                    }
+                }
+            }
+
+            playerTargeted.getPlayerButton().setText("notEnabled");
+            playerTargeted.getPlayerButton().setOpacity(0);
+            playersSelected.remove(playerTargeted);
+            players--;
+        }
+    }
+
+    private Player findPlayer(Button b) {
+        if (playersSelected.size() != 0) {
+            for (Player player : playersSelected) {
+                if (player != null) {
+                    if (player.getPlayerButton().equals(b)) {
+                        return player;
+                    }
+                }
             }
         }
+        return null;
+
     }
 }
