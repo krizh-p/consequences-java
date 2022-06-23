@@ -39,7 +39,6 @@ public class InstructionsPromptController implements Initializable {
             ConsequencesApplication.primaryStage.setScene(ConsequencesApplication.playerSelection);
         }
         else {
-            System.out.println("Switching to info");
             Parent rootInstructionsScreen = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("InstructionsGuideScreen.fxml")));
             ConsequencesApplication.gameInstructions = new Scene(rootInstructionsScreen, ConsequencesApplication.LENGTH, ConsequencesApplication.HEIGHT);
             ConsequencesApplication.primaryStage.setScene(ConsequencesApplication.gameInstructions);
