@@ -15,18 +15,18 @@ public class ConsequencesApplication extends Application {
 
     public static final int HEIGHT = 720;
     public static final int LENGTH = 1280;
+
     public static Scene titleScreen;
+    public static Scene playerSelection;
     public static Scene gameInstructions;
 
     @Override
     public void start(Stage primaryStage) throws IOException, URISyntaxException {
 
-        //Load the main menu and the game screen
+        //Load the main menu
         ConsequencesApplication.primaryStage = primaryStage;
-        Parent rootStartMenu = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartMenu.fxml")));
-        Parent rootPlayerScreen= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PlayerScreen.fxml")));
+        Parent rootStartMenu = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TitleScreen.fxml")));
         titleScreen = new Scene(rootStartMenu, LENGTH, HEIGHT);
-        gameInstructions = new Scene(rootPlayerScreen, LENGTH, HEIGHT);
 
         //Set Screen
         primaryStage.setTitle("CONSEQUENCES");

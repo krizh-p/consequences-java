@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="InstructionsPromptAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.krizhp.consequences.InstructionsPromptController">
+   <children>
+      <ImageView fx:id="instructionsPromptBackground" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@assets/1.png" />
+         </image></ImageView>
+      <Button fx:id="buttonKnow" layoutY="2.0" mnemonicParsing="false" onAction="#onButtonClick" opacity="0.2" prefHeight="720.0" prefWidth="640.0" text="I KNOW&#10;HOW TO&#10;PLAY" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="Arial" size="96.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonTeach" layoutX="640.0" mnemonicParsing="false" onAction="#onButtonClick" opacity="0.2" prefHeight="722.0" prefWidth="640.0" text="TEACH ME&#10;HOW TO&#10;PLAY" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="Arial" size="96.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
