@@ -1,16 +1,18 @@
 package com.krizhp.consequences;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.event.ActionEvent;
 import javafx.scene.image.ImageView;
-import javafx.scene.shape.Circle;
 
+import java.net.URL;
 import java.util.LinkedList;
+import java.util.ResourceBundle;
 
-public class MenuController {
+public class PlayerScreenController implements Initializable {
 
     private int players = -1;
     private LinkedList<Player> playersSelected = new LinkedList<>();
@@ -68,7 +70,7 @@ public class MenuController {
     }
 
     private void enablePlayer (Button b, String tileColor, Player playerTargeted) {
-        if (b.getText().equals("notEnabled")) {
+        if (b.getText().toLowerCase().contains("enable")) {
             players++;
             playersSelected.add(new Player(tileColor, players, b));
             b.setOpacity(.2);
@@ -112,5 +114,34 @@ public class MenuController {
         }
         return null;
 
+    }
+
+    private void showTooltip(Button b) {
+        if (b.getText().contains("notEnabled")) {
+            b.setOpacity(.2);
+            b.setText("CLICK TO\n" + "ENABLE\nPLAYER " + (players+2));
+        }
+    }
+
+    private  void hideTooltip(Button b) {
+        if (b.getText().contains("CLICK TO")) {
+            b.setText("notEnabled");
+            b.setOpacity(0);
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        PlayerOneButton.setOnMouseEntered(e -> showTooltip(PlayerOneButton));
+        PlayerOneButton.setOnMouseExited(e -> hideTooltip(PlayerOneButton));
+
+        PlayerTwoButton.setOnMouseEntered(e -> showTooltip(PlayerTwoButton));
+        PlayerTwoButton.setOnMouseExited(e -> hideTooltip(PlayerTwoButton));
+
+        PlayerThreeButton.setOnMouseEntered(e -> showTooltip(PlayerThreeButton));
+        PlayerThreeButton.setOnMouseExited(e -> hideTooltip(PlayerThreeButton));
+
+        PlayerFourButton.setOnMouseEntered(e -> showTooltip(PlayerFourButton));
+        PlayerFourButton.setOnMouseExited(e -> hideTooltip(PlayerFourButton));
     }
 }
