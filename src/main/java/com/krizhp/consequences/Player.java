@@ -6,6 +6,7 @@ public class Player {
     private String tileColor;
     private int orderChosen;
     private Button playerButton;
+    private String playerType;
 
     Player(String tileColor, int orderChosen, Button playerButton) {
         this.tileColor = tileColor;
@@ -13,8 +14,16 @@ public class Player {
         this.playerButton = playerButton;
     }
 
+    public String getPlayerType() {
+        return this.playerType;
+    }
+
     public Button getPlayerButton() {
         return this.playerButton;
+    }
+
+    public void setPlayerType(String type) {
+        this.playerType = type;
     }
 
     public void setPlayerButton(Button playerButton) {
@@ -24,7 +33,7 @@ public class Player {
 
     /**
      * Set the color of the player's tile
-     * @param tileColor
+     * tileColor
      */
     public void setTileColor(String tileColor) {
         this.tileColor = tileColor;
@@ -32,7 +41,7 @@ public class Player {
 
     /**
      * Set the order the player was chosen
-     * @param orderChosen
+     * orderChosen
      */
     public void setOrderChosen(int orderChosen) {
         this.orderChosen = orderChosen;

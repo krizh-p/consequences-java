@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,6 +30,7 @@ public class ConsequencesApplication extends Application {
         titleScreen = new Scene(rootStartMenu, LENGTH, HEIGHT);
 
         //Set Screen
+        primaryStage.getIcons().add(new Image("favico.png"));
         primaryStage.setTitle("CONSEQUENCES");
         primaryStage.setScene(titleScreen);
         primaryStage.setResizable(false);

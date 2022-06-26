@@ -8,6 +8,7 @@ import javafx.scene.layout.GridPane;
 import javafx.event.ActionEvent;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
@@ -53,29 +54,32 @@ public class PlayerScreenController implements Initializable {
     @FXML
     private AnchorPane StartMenuScreen;
 
-
-    public void handleButtonAction(ActionEvent e) {
+    public void handleButtonAction(ActionEvent e) throws IOException {
+        PlayerTypePrompt p = new PlayerTypePrompt();
         if (e.getTarget() == PlayerOneButton) {
-            enablePlayer(PlayerOneButton, "blue", findPlayer(PlayerOneButton));
+            enablePlayer(PlayerOneButton, "yellow", findPlayer(PlayerOneButton));
         }
         else if (e.getTarget() == PlayerTwoButton) {
-            enablePlayer(PlayerTwoButton, "yellow", findPlayer(PlayerTwoButton));
+            enablePlayer(PlayerTwoButton, "blue", findPlayer(PlayerTwoButton));
         }
         else if (e.getTarget() == PlayerThreeButton) {
-            enablePlayer(PlayerThreeButton, "green", findPlayer(PlayerThreeButton));
+            enablePlayer(PlayerThreeButton, "purple", findPlayer(PlayerThreeButton));
         }
         else if (e.getTarget() == PlayerFourButton) {
-            enablePlayer(PlayerFourButton, "pink", findPlayer(PlayerFourButton));
+            enablePlayer(PlayerFourButton, "green", findPlayer(PlayerFourButton));
         }
     }
 
-    private void enablePlayer (Button b, String tileColor, Player playerTargeted) {
+    private void enablePlayer (Button b, String tileColor, Player playerTargeted) throws IOException {
         if (b.getText().toLowerCase().contains("enable")) {
             players++;
-            playersSelected.add(new Player(tileColor, players, b));
+            Player newPlayer = new Player(tileColor, players, b);
+            newPlayer.setPlayerType(PlayerTypePrompt.display(newPlayer.getTileColor() + "Tile"));
+            playersSelected.add(newPlayer);
             b.setOpacity(.2);
             b.setText(playersSelected.get(players).toString());
         }
+
         else {
             //Prevent duplicate players
             if (players >= 1) {
@@ -123,7 +127,7 @@ public class PlayerScreenController implements Initializable {
         }
     }
 
-    private  void hideTooltip(Button b) {
+    private void hideTooltip(Button b) {
         if (b.getText().contains("CLICK TO")) {
             b.setText("notEnabled");
             b.setOpacity(0);
@@ -132,6 +136,9 @@ public class PlayerScreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+
         PlayerOneButton.setOnMouseEntered(e -> showTooltip(PlayerOneButton));
         PlayerOneButton.setOnMouseExited(e -> hideTooltip(PlayerOneButton));
 

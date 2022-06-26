@@ -10,7 +10,7 @@
          <children>
             <ImageView fx:id="pageThreeImg" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assets/5.png" />
+                  <Image url="@../../../assets/5.png" />
                </image>
             </ImageView>
             <Button fx:id="pageThreeGoBack" layoutX="492.0" layoutY="647.0" mnemonicParsing="false" opacity="0.0" prefHeight="48.0" prefWidth="54.0" text="Button" />
@@ -20,7 +20,7 @@
          <children>
             <ImageView fx:id="pageTwoImg" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assets/4.png" />
+                  <Image url="@../../../assets/4.png" />
                </image>
             </ImageView>
             <Button fx:id="pageTwoGoForward" layoutX="734.0" layoutY="639.0" mnemonicParsing="false" opacity="0.0" prefHeight="56.0" prefWidth="54.0" text="Button" />
@@ -30,7 +30,7 @@
          <children>
             <ImageView fx:id="pageOneImg" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assets/3.png" />
+                  <Image url="@../../../assets/3.png" />
                </image>
             </ImageView>
             <Button fx:id="pageOneGoForward" layoutX="734.0" layoutY="636.0" mnemonicParsing="false" opacity="0.0" prefHeight="56.0" prefWidth="54.0" text="Button" />

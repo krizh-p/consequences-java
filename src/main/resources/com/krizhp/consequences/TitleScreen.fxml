@@ -9,7 +9,7 @@
    <children>
       <ImageView fx:id="StartMenuBackgroundImg" fitHeight="720.0" fitWidth="1280.0" layoutX="200.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@assets/startMenu.png" />
+            <Image url="@../../../assets/startMenu.png" />
          </image>
       </ImageView>
       <Button fx:id="GameStartButton" layoutX="382.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleButtonAction" opacity="0.0" text="Button" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
